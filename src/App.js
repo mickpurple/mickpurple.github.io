@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import gsap from "gsap";
+import { useLayoutEffect } from "react";
+import Works from "./sections/Works/Works";
+import Footer from "./sections/Footer";
+import Home from "./sections/Home";
+import { SmoodScroller } from "./Components/SmoodScroller";
 
 function App() {
+  SmoodScroller(70);
+  useLayoutEffect(() => {
+    gsap.to(".bg-main", {
+      backgroundColor: "#1b1b1c",
+      delay: 1,
+      duration: 1.5,
+    });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen w-full bg-[#000000] bg-main">
+      <Home />
+      {/* <Works /> */}
+      {/* <Footer /> */}
     </div>
   );
 }
