@@ -10,7 +10,7 @@ function App() {
   SmoodScroller(70);
   useLayoutEffect(() => {
     gsap.to(".bg-main", {
-      backgroundColor: "#1b1b1c",
+      backgroundColor: "#050505",
       delay: 1,
       duration: 1.5,
     });
