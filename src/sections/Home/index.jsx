@@ -47,6 +47,19 @@ export default function Home() {
         stagger: 0.2,
       }
     );
+
+    // socials
+    gsap.fromTo(
+      ".socials",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        delay: 1.2,
+        duration: 0.8,
+      }
+    );
   });
 
   return (
@@ -97,7 +110,7 @@ export default function Home() {
 
         <div className="max-w-[900px] mt-[200px] md:mt-0">
           {/* socials */}
-          <div className="flex justify-center gap-5 mb-20">
+          <div className="flex justify-center gap-5 mb-20 socials">
             <a
               href="https://www.linkedin.com/in/kartikey-soni-a0b527220/"
               target="_blank"
@@ -140,7 +153,7 @@ export default function Home() {
 
           {/* main body starts here */}
           <div className="grid grid-cols-4 md:grid-cols-10 gap-5">
-            <div className="col-span-4 row-span-2 text-center text-lg flex items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 p-6 card">
+            <div className="col-span-4 row-span-2 text-start text-lg flex items-center bg-[#EBEBEB] rounded-[25px] transition-[border-radius] duration-300 p-6 md:p-9 card">
               <p>
                 Full stack web developer with a thing for good design and visual
                 art.
@@ -155,7 +168,7 @@ export default function Home() {
                 className="w-full h-full p-5"
               >
                 <img
-                  src="/images/Github-logo.png"
+                  src="/images/git-logo.png"
                   alt="GitHub"
                   className="h-16 mx-auto"
                 />
