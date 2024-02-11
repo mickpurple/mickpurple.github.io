@@ -1,10 +1,10 @@
 import "./App.css";
 import gsap from "gsap";
 import { useLayoutEffect } from "react";
-import Works from "./sections/Works/Works";
-import Footer from "./sections/Footer";
 import Home from "./sections/Home";
 import { SmoodScroller } from "./Components/SmoodScroller";
+import { Route, Routes } from "react-router-dom";
+import Projects from "./sections/Projects/projects";
 
 function App() {
   SmoodScroller(70);
@@ -17,9 +17,10 @@ function App() {
   }, []);
   return (
     <div className="min-h-screen w-full bg-[#000000] bg-main">
-      <Home />
-      {/* <Works /> */}
-      {/* <Footer /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
     </div>
   );
 }

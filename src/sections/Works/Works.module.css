@@ -1,9 +1,0 @@
-.card {
-    transition: all;
-    transition-duration: 200ms;
-}
-
-.card:hover {
-    box-shadow: rgba(0, 0, 0, 0.33) 8px 8px 0px 0px;
-    transform: translateY(-6px);
-}

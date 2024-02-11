@@ -62,9 +62,43 @@ export default function Home() {
     );
   });
 
+  const SocialIcon = ({ link, image }) => {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        className="h-16 w-16 flex items-center justify-center duration-300 transition-all bg-[#221F3B] hover:bg-[#EBEBEB] rounded-[30%] hover:rounded-[100%] hover:scale-110"
+      >
+        <img src={image} className="h-8 w-8" />
+      </a>
+    );
+  };
+
+  const SimpleCard = ({ link, image, cspan = 3 }) => {
+    return (
+      <div
+        className={`col-span-4 md:col-span-${cspan} flex justify-center items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 card`}
+      >
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="w-full h-full p-5"
+        >
+          <img
+            src={image}
+            alt="GitHub"
+            className="h-16 object-scale-down mx-auto"
+          />
+        </a>
+      </div>
+    );
+  };
+
   return (
-    <div className="container mx-auto px-5 thiss">
-      <div className="flex flex-col justify-center items-center gap-20 md:h-screen overflow-hidden">
+    <div className="container mx-auto px-5">
+      <div className="relative flex flex-col justify-center items-center gap-20 md:h-screen overflow-hidden">
         {/* header start */}
         <div className="z-20 flex justify-center absolute -top-14 left-0 right-0 max-w-[450px] mx-auto pointer-events-none">
           <svg
@@ -108,119 +142,66 @@ export default function Home() {
           </svg>
         </div>
 
+        {/* footer */}
+        <div className="absolute bottom-10 socials">
+          crafted with ♥ by Kartikey Soni
+        </div>
+
         <div className="max-w-[900px] mt-[200px] md:mt-0">
           {/* socials */}
-          <div className="flex justify-center gap-5 mb-20 socials">
-            <a
-              href="https://www.linkedin.com/in/kartikey-soni-a0b527220/"
-              target="_blank"
-              rel="noreferrer"
-              className="h-16 w-16 flex items-center justify-center duration-300 transition-all bg-[#221F3B] hover:bg-[#EBEBEB] rounded-[30%] hover:rounded-[100%] hover:scale-110"
-            >
-              <img
-                src="/images/linkedin-logo.png"
-                alt="ArtStation"
-                className="h-8 w-8 brightness-"
-              />
-            </a>
-
-            <a
-              href="https://www.instagram.com/mickpurple/"
-              target="_blank"
-              rel="noreferrer"
-              className="h-16 w-16 flex items-center justify-center duration-300 transition-all bg-[#221F3B] hover:bg-[#EBEBEB] rounded-[30%] hover:rounded-[100%] hover:scale-110"
-            >
-              <img
-                src="/images/insta-logo.png"
-                alt="ArtStation"
-                className="h-8 w-8"
-              />
-            </a>
-
-            <a
-              href="https://twitter.com/theMickpurple"
-              target="_blank"
-              rel="noreferrer"
-              className="h-16 w-16 flex items-center justify-center duration-300 transition-all bg-[#221F3B] hover:bg-[#EBEBEB] rounded-[30%] hover:rounded-[100%] hover:scale-110"
-            >
-              <img
-                src="/images/x-logo.png"
-                alt="ArtStation"
-                className="h-8 w-8 brightness-0"
-              />
-            </a>
+          <div className="flex justify-center gap-5 mb-[5vh] socials">
+            <SocialIcon
+              image={"/images/linkedin-logo.png"}
+              link={"https://www.linkedin.com/in/kartikey-soni-a0b527220/"}
+            />
+            <SocialIcon
+              image={"/images/insta-logo.png"}
+              link={"https://www.instagram.com/mickpurple/"}
+            />
+            <SocialIcon
+              image={"/images/x-logo.png"}
+              link={"https://twitter.com/theMickpurple"}
+            />
           </div>
 
           {/* main body starts here */}
           <div className="grid grid-cols-4 md:grid-cols-10 gap-5">
-            <div className="col-span-4 row-span-2 text-start text-lg flex items-center bg-[#EBEBEB] rounded-[25px] transition-[border-radius] duration-300 p-6 md:p-9 card">
+            <div className="col-span-4 row-span-2 text-start text-lg flex bg-[#EBEBEB] rounded-[25px] transition-[border-radius] duration-300 p-6 md:p-9 card">
               <p>
                 Full stack web developer with a thing for good design and visual
                 art.
               </p>
             </div>
 
-            <div className="col-span-4 md:col-span-3 flex justify-center items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 card">
-              <a
-                href="https://github.com/Mickpurple"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full h-full p-5"
-              >
-                <img
-                  src="/images/git-logo.png"
-                  alt="GitHub"
-                  className="h-16 mx-auto"
-                />
-              </a>
-            </div>
+            <SimpleCard
+              image={"/images/git-logo.png"}
+              link={"https://github.com/Mickpurple"}
+            />
 
-            <div className="col-span-4 md:col-span-3 flex justify-center items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 card">
-              <a
-                href="https://www.artstation.com/mickpurple"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full h-full p-5"
-              >
-                <img
-                  src="/images/artstation-logo.png"
-                  alt="ArtStation"
-                  className="h-16 mx-auto"
-                />
-              </a>
-            </div>
+            <SimpleCard
+              image={"/images/artstation-logo.png"}
+              link={"https://www.artstation.com/mickpurple"}
+            />
+
+            <SimpleCard
+              image={"/images/itch-logo.png"}
+              link={"https://mickpurple.itch.io/"}
+              cspan={2}
+            />
 
             <div className="col-span-4 md:col-span-2 flex justify-center items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 card">
               <a
-                href="https://mickpurple.itch.io/"
-                target="_blank"
+                href="/#projects"
                 rel="noreferrer"
-                className="w-full h-full p-5"
+                className="w-full h-full p-5 flex items-center justify-center"
               >
-                <img
-                  src="/images/itch-logo.png"
-                  alt="itch.io"
-                  className="h-16 object-scale-down mx-auto"
-                />
-              </a>
-            </div>
-
-            <div className="col-span-4 md:col-span-2 flex justify-center items-center bg-[#EBEBEB] rounded-[25px] hover:rounded-[40px] transition-[border-radius] duration-300 card">
-              <a
-                href=""
-                target="_blank"
-                rel="noreferrer"
-                className="w-full h-full p-5"
-              >
-                <p className="text-center text-lg">
-                  projects <br /> <span className="text-xs">coming soon</span>
-                </p>
+                <p className="text-center text-lg">projects</p>
               </a>
             </div>
           </div>
 
           {/* extra block for space management */}
-          <div className="md:h-24"></div>
+          <div className="h-24 md:h-10"></div>
         </div>
       </div>
     </div>
