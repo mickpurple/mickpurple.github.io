@@ -5,6 +5,7 @@ import Home from "./sections/Home";
 import { SmoodScroller } from "./Components/SmoodScroller";
 import { Route, Routes } from "react-router-dom";
 import Projects from "./sections/Projects/projects";
+import HomeOld from "./sections/Home/indexBKP";
 
 function App() {
   SmoodScroller(70);
@@ -18,15 +19,16 @@ function App() {
   // }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-main bg-col">
-      <img
+    <div className="relative min-h-screen w-full bg-main bg-colXXX">
+      {/* <img
         src="images/tex-grain3.jpg"
         className="absolute w-full h-full mix-blend-overlay opacity-70"
-      />
+      /> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/old" element={<HomeOld />} />
       </Routes>
     </div>
   );

@@ -10,8 +10,38 @@ body {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 1.5px;
 
   color: #221f3b;
+
+  background-color: #101010;
+  /* background-color: black; */
+}
+
+.window-img {
+  background-image: url("../public/images/bg.gif");
+  background-size: cover;
+  /* mask-image: url("../public/images/bg.gif");
+  mask-size: cover;
+  mask-repeat: repeat; */
+}
+
+.train {
+  animation: "train-anim" infinite linear;
+}
+
+@keyframes train-anim {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(40px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 code {
