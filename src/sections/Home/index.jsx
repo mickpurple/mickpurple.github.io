@@ -189,12 +189,15 @@ export default function Home() {
                           Catch up on my latest works and cool projects on my
                           Github!
                         </div>
-                        <div className="rounded-full border-2 border-black p-5 bg-white flex w-fit absolute z-20 bottom-0 right-0">
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          className="rounded-full border-2 border-black p-5 bg-white flex w-fit absolute z-20 bottom-0 right-0"
+                        >
                           <img
                             src="/images/git-logo.png"
                             className="w-[60px] h-[60px]"
                           />
-                        </div>
+                        </motion.div>
                       </a>
                     </div>
                   </Slide>
