@@ -19,7 +19,7 @@ function App() {
   // }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-main bg-colXXX">
+    <div className="relative min-h-[100dvh] w-full bg-main bg-colXXX">
       {/* <img
         src="images/tex-grain3.jpg"
         className="absolute w-full h-full mix-blend-overlay opacity-70"
