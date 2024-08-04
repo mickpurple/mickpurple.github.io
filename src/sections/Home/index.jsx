@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { Children, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -28,13 +28,15 @@ export default function Home() {
 
   const windowPosCalc = () => {
     const win = Array.from(document.getElementsByClassName(`window`));
-    win.map((item, index) => {
-      // console.log(item);
+    win.forEach((item, index) => {
+      const rand = Math.random() * 0.05;
       const tempPos =
         (item.getBoundingClientRect().left + item.offsetWidth / 2) /
-        (window.innerWidth / 2);
+          (window.innerWidth / 2) +
+        rand;
 
       item.style.marginLeft = `${(tempPos * 15) / 0.95}%`;
+      item.style.marginTop = `${rand * 10}%`;
     });
   };
 
@@ -58,7 +60,15 @@ export default function Home() {
 
   const Slide = ({ index, children }) => {
     return (
-      <div
+      <motion.div
+        animate={{ y: [0, 1, -1, 0, -3] }}
+        transition={{
+          duration: 0.7,
+          // ease: "easeInOut",
+          times: [0, 0.15, 0.3, 0.5, 1],
+          repeat: Infinity,
+          repeatDelay: 0.5,
+        }}
         className={`relative text-white bg-[#6e6e6e] rounded-[25px] sm:w-full pt-[100%] card-anim${index}`}
       >
         <div
@@ -66,21 +76,21 @@ export default function Home() {
           id={`window${index}`}
         ></div>
         <img
-          src="/images/dirt2.jpg"
-          className="absolute top-0 object-cover w-full h-full mix-blend-overlay pointer-events-none rounded-[25px]"
+          alt=""
+          src="/images/glass.png"
+          className="absolute top-0 object-cover w-full h-full mix-blend-overlay pointer-events-none rounded-[25px] saturate-[0]"
         />
-        <div className="absolute top-0 left-0 w-full h-full p-5 text-[22px] xl:text-[32px]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.2 }}
+          className="absolute top-0 left-0 w-full h-full p-5 text-[22px] xl:text-[32px]"
+        >
           {children}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     );
   };
-
-  // const sliders = document.querySelector(".sliders");
-
-  // useGSAP(() => {
-  //   if (sliders) gsap.fromTo(".sliders", { x: "300%" }, { x: "0%" });
-  // });
 
   const svgFill = {
     hidden: {
@@ -118,10 +128,20 @@ export default function Home() {
         className="container mx-auto px-5 h-[100dvh] flex flex-col justify-center items-center"
       >
         <div className="flex flex-col md:flex-row justify-between md:items-center w-full mb-5 md:mb-0">
-          <p className="text-[48px] md:text-[64px] lg:text-[96px] leading-tight">
+          <motion.p
+            initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 2 }}
+            className="text-[48px] md:text-[64px] lg:text-[96px] leading-tight"
+          >
             KARTIKEY SONI
-          </p>
-          <div className="flex gap-5">
+          </motion.p>
+          <motion.div
+            initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 2 }}
+            className="flex gap-5"
+          >
             <SocialIcon
               link={"https://www.linkedin.com/in/kartikey-soni-a0b527220/"}
               image={"/images/icon-linkedin.png"}
@@ -134,11 +154,16 @@ export default function Home() {
               link={"https://twitter.com/theMickpurple"}
               image={"/images/icon-twitter.png"}
             />
-          </div>
+          </motion.div>
         </div>
 
         <div className="relative w-screen z-10">
-          <div className="w-full train swiper-no-swipingX">
+          <motion.div
+            className="w-full train swiper-no-swipingX"
+            initial={{ scale: 2, x: "100%" }}
+            animate={{ scale: [3, 3, 1], x: ["120%", "0%", "0%"] }}
+            transition={{ times: [0, 0.8, 1], duration: 2 }}
+          >
             {divPad && (
               <Swiper
                 spaceBetween={50}
@@ -194,6 +219,7 @@ export default function Home() {
                           className="rounded-full border-2 border-black p-5 bg-white flex w-fit absolute z-20 bottom-0 right-0"
                         >
                           <img
+                            alt="github"
                             src="/images/git-logo.png"
                             className="w-[60px] h-[60px]"
                           />
@@ -306,13 +332,18 @@ export default function Home() {
                 </SwiperSlide>
               </Swiper>
             )}
-          </div>
+          </motion.div>
         </div>
         <div className="w-full mt-[40px] lg:mt-[40px]">
-          <p className="text-[28px] md:text-[32px] lg:text-[40px] max-w-[350px] md:max-w-[380px] lg:max-w-[450px] leading-tight">
+          <motion.p
+            initial={{ y: "-100%", opacity: 0, filter: "blur(10px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            transition={{ delay: 2 }}
+            className="text-[28px] md:text-[32px] lg:text-[40px] max-w-[350px] md:max-w-[380px] lg:max-w-[450px] leading-tight"
+          >
             Software developer engineer and tech enthusiast with a thing for art
             and design.
-          </p>
+          </motion.p>
         </div>
       </div>
     </div>
