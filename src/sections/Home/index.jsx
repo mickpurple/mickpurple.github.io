@@ -14,7 +14,15 @@ export default function Home() {
   const [divPad, setDivPad] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  const pictures = [{ src: "/images/bg.gif" }, { src: "/images/glass.png" }];
+
   useEffect(() => {
+    pictures.forEach((picture) => {
+      const img = new Image();
+      img.src = picture.src;
+      console.log(img);
+    });
+
     setTimeout(() => {
       setLoading(false);
     }, 1500);
