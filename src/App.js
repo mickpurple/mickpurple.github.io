@@ -20,10 +20,10 @@ function App() {
 
   return (
     <div className="relative min-h-[100dvh] w-full bg-main bg-colXXX">
-      {/* <img
+      <img
         src="images/tex-grain3.jpg"
         className="absolute w-full h-full mix-blend-overlay opacity-70"
-      /> */}
+      />
 
       <Routes>
         <Route path="/" element={<Home />} />

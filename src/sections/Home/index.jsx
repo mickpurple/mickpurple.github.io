@@ -160,7 +160,7 @@ export default function Home() {
               initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               transition={{ delay: 2 }}
-              className="text-[48px] md:text-[64px] lg:text-[96px] leading-tight"
+              className="bg-gradient-to-b from-[#fff] via-[#fff] to-[#535353] bg-clip-text text-transparent text-[48px] md:text-[64px] lg:text-[96px] leading-tight"
             >
               KARTIKEY SONI
             </motion.p>
@@ -168,7 +168,7 @@ export default function Home() {
               initial={{ y: "100%", opacity: 0, filter: "blur(10px)" }}
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               transition={{ delay: 2 }}
-              className="flex gap-5"
+              className="flex gap-2 md:gap-5"
             >
               <SocialIcon
                 link={"https://www.linkedin.com/in/kartikey-soni-a0b527220/"}
@@ -230,17 +230,12 @@ export default function Home() {
                   <SwiperSlide className="relative overflow-hidden rounded-[25px] sliders">
                     <Slide index={1}>
                       <div className="w-full h-full relative">
-                        <a
-                          href="https://github.com/mickpurple"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
+                        <a href="#projects">
                           <div
                             className="bg-[#2d21727f] leading-tight p-4 lg:max-w-[232px] rounded-[15px] flex backdrop-blur-lg absolute xl:top-[10%] xl:left-[5%]
                          transition-all hover:bg-[#2d2172bb]"
                           >
-                            Catch up on my latest works and cool projects on my
-                            Github!
+                            Catch up on my latest works and cool projects!
                           </div>
                           {/* <motion.div
                             whileHover={{ scale: 1.05 }}
@@ -260,7 +255,11 @@ export default function Home() {
                   <SwiperSlide className="overflow-hidden rounded-[25px] sliders">
                     <Slide index={3}>
                       <div className="w-full h-full relative">
-                        <a href="#projects">
+                        <a
+                          href="https://github.com/mickpurple"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           {/* <div className="z-20 flex justify-center absolute top-0 left-0 w-[250px] mx-auto pointer-events-none">
                             <svg
                               className="absolute z-20"
@@ -332,7 +331,7 @@ export default function Home() {
                             className=" bg-[#72492198] leading-tight p-4 max-w-[232px] rounded-[15px] absolute bottom-[20%] right-0 flex backdrop-blur-md
                         transition-all hover:bg-[#723f21ba]"
                           >
-                            checkout some cool projects!
+                            Visit my github for more projects!
                           </div>
                         </a>
                       </div>
@@ -368,9 +367,9 @@ export default function Home() {
               initial={{ y: "-100%", opacity: 0, filter: "blur(10px)" }}
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               transition={{ delay: 2 }}
-              className="text-[28px] md:text-[32px] lg:text-[40px] max-w-[350px] md:max-w-[380px] lg:max-w-[450px] leading-tight"
+              className="bg-gradient-to-b from-[#fff] via-[#d0d0d0] to-[#7a7a7a] bg-clip-text text-transparent text-[28px] md:text-[32px] lg:text-[40px] max-w-[350px] md:max-w-[400px] lg:max-w-[480px] leading-tight"
             >
-              Software developer engineer and tech enthusiast with a thing for
+              Software development engineer and tech enthusiast with a thing for
               art and design.
             </motion.p>
           </div>
